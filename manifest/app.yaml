@@ -19,7 +19,7 @@ metadata:
   labels:
     app: myapp
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: myapp
@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: maradwan/myapp:v2
+        image: maradwan/myapp:v1
         ports:
         - containerPort: 8888
         #resources:
