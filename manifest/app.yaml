@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: maradwan/myapp:v1 
+        image: maradwan/myapp:v2
         ports:
         - containerPort: 8888
         #resources:
