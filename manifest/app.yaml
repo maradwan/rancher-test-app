@@ -43,7 +43,7 @@ metadata:
   name: myapp-service
   annotations:
     #service.beta.kubernetes.io/aws-load-balancer-type: nlb
-    service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: "env=dev"
+    service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: "env=dev", "Name=my-app", "cost=2121"
 spec:
   selector:
     app: myapp
