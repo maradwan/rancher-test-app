@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: acs-helloworld-{{.Release.Name}}
+  name: {{.Release.Name}}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: acs-helloworld-{{.Release.Name}}
+      app: {{.Release.Name}}
   template:
     metadata:
       labels:
-        app: acs-helloworld-{{.Release.Name}}
+        app: {{.Release.Name}}
     spec:
       containers:
-      - name: acs-helloworld-{{.Release.Name}}
+      - name: {{.Release.Name}}
         image: neilpeterson/aks-helloworld:v1
         ports:
         - containerPort: 80
