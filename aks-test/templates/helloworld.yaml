@@ -30,4 +30,4 @@ spec:
   ports:
   - port: 80
   selector:
-    app: acs-helloworld-{{.Release.Name}}
+    app: {{.Release.Name}}
