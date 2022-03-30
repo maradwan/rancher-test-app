@@ -2,5 +2,5 @@
 title: "Welcome to Azure Kubernetes Service (EKS)"
 
 # Service controlls
-serviceName: EKS-helloworld
+serviceName: eks-helloworld
 serviceType: ClusterIP
