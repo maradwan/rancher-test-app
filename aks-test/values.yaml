@@ -1,6 +1,0 @@
-# UI controll
-title: "Welcome to Azure Kubernetes Service (EKS)"
-
-# Service controlls
-serviceName: eks-helloworld
-serviceType: ClusterIP
