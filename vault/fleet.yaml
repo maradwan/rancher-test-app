@@ -1,0 +1,18 @@
+defaultNamespace: default
+
+helm:
+  chart: vault
+  repo: https://helm.releases.hashicorp.com
+  version: 0.19.0
+  values:
+    server:
+      ha:
+        enabled: true
+        raft:
+          enabled: true
+
+targetCustomizations:
+- name: test
+  clusterSelector:
+    matchLabels:
+      env: test
