@@ -1,0 +1,12 @@
+defaultNamespace: default
+
+helm:
+  chart: nginx-ingress-controller
+  repo: https://charts.bitnami.com/bitnami
+  version: 9.1.26
+
+targetCustomizations:
+- name: test
+  clusterSelector:
+    matchLabels:
+      env: test
