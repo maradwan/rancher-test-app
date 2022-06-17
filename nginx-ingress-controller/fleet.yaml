@@ -4,33 +4,28 @@ helm:
   chart: nginx-ingress-controller
   repo: https://charts.bitnami.com/bitnami
   version: 9.1.26
-  values:
-    service:    
-      labels: { 
-        app: yes
-      }
-      annotations: 
+
+  
+targetCustomizations:     
+- name: test
+  helm:
+    values:      
+      service:
+        targetPorts: {
+          name: https,
+            port: 80,
+            protocol: TCP,
+            targetPort: http
+        }
+        annotations: {
         service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
         service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
         service.beta.kubernetes.io/aws-load-balancer-type: nlb
         service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "60"
         service.beta.kubernetes.io/aws-load-balancer-ssl-ports: https
-      
-      ports: {
-        name: https,
-          port: 8080,
-          protocol: TCP,
-          targetPort: http
-      }
-      ports: {
-        name: http,
-          port: 9090,
-          protocol: TCP,
-          targetPort: http
-      }
-  
-targetCustomizations:
-- name: test
+        }
+        
   clusterSelector:
     matchLabels:
       env: test
+
