@@ -13,13 +13,13 @@ helm:
         service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "60"
         service.beta.kubernetes.io/aws-load-balancer-ssl-ports: https
       
-      targetPorts: {
+      ports: {
         name: https,
           port: 8080,
           protocol: TCP,
           targetPort: http
       }
-      targetPorts: {
+      ports: {
         name: http,
           port: 9090,
           protocol: TCP,
