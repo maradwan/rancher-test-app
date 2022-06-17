@@ -11,6 +11,12 @@ helm:
           port: 443,
           protocol: TCP,
           targetPort: http
+      },
+      {
+        name: http,
+          port: 80,
+          protocol: TCP,
+          targetPort: http
       }
       annotations: 
         service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
