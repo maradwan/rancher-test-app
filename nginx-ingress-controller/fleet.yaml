@@ -5,6 +5,8 @@ helm:
   repo: https://charts.bitnami.com/bitnami
   version: 9.1.26
   values:
+    containerPorts:
+      https: http
     service:
       targetPorts: {
         name: https,
@@ -18,6 +20,8 @@ helm:
           protocol: TCP,
           targetPort: http
       }
+      
+      
       annotations: 
         service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
         service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
