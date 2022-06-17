@@ -6,13 +6,13 @@ helm:
   version: 9.1.26
   values:
     service:
-      ports: {
+      targetPorts: {
         name: https,
           port: 8080,
           protocol: TCP,
           targetPort: http
       }
-      ports: {
+      targetPorts: {
         name: http,
           port: 9090,
           protocol: TCP,
