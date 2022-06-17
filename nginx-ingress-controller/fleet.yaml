@@ -11,8 +11,8 @@ helm:
           port: 443,
           protocol: TCP,
           targetPort: http
-      },
-      {
+      }
+      targetPorts: {
         name: http,
           port: 80,
           protocol: TCP,
