@@ -6,12 +6,9 @@ helm:
   version: 9.1.26
   values:      
       service:
-        targetPorts: {
-          name: https,
-            port: 80,
-            protocol: TCP,
-            targetPort: http
-        }
+        targetPorts:
+          http: http
+          https: http
         annotations: 
           service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
           service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
