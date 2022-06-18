@@ -4,12 +4,7 @@ helm:
   chart: nginx-ingress-controller
   repo: https://charts.bitnami.com/bitnami
   version: 9.1.26
-
-  
-targetCustomizations:     
-- name: test
-  helm:
-    values:      
+  values:      
       service:
         targetPorts: {
           name: https,
@@ -23,9 +18,3 @@ targetCustomizations:
           service.beta.kubernetes.io/aws-load-balancer-type: nlb
           service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "60"
           service.beta.kubernetes.io/aws-load-balancer-ssl-ports: https
-        
-       
-  clusterSelector:
-    matchLabels:
-      env: test
-
