@@ -1,19 +1,22 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: myapp-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /
+  name: myapp
+  namespace: default
 
-spec:                                                                     
-  ingressClassName: nginx                                                 
-  rules:                                                                  
-  - host: myapp.test.example.com                                    
-    http:                                                                 
-      paths:                                                              
-      - path: /
-        backend:                                                          
-          serviceName: myapp-service                                            
-          servicePort: 80      
+spec:
+  #ingressClassName: nginx
+   rules:
+   - host: 'myapp.apps.gozeit.com'
+     http:
+       paths:
+       - backend:
+           service:
+             name: myapp-service
+             port:
+               number: 80
+         pathType: ImplementationSpecific
