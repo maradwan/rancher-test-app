@@ -9,8 +9,6 @@ helm:
         targetPorts:
           https: http
         annotations:
-          service.beta.kubernetes.io/aws-load-balancer-type: external
-          service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
           service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
           service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-west-1:117698054570:certificate/050b46d3-2979-4aae-8d41-de9fd091a023
           service.beta.kubernetes.io/aws-load-balancer-ssl-port: "443"
