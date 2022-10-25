@@ -10,7 +10,7 @@ helm:
           https: http
         annotations:
           service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
-          service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-west-1:117698054570:certificate/050b46d3-2979-4aae-8d41-de9fd091a023
+          service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-west-1:117698054570:certificate/b8333df6-6bda-4dde-8b05-88bd767705b9
           service.beta.kubernetes.io/aws-load-balancer-ssl-ports: https
           service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: 'true'
           service.beta.kubernetes.io/aws-load-balancer-type: nlb
