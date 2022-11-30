@@ -14,20 +14,14 @@ targetCustomizations:
 - name: prod
   helm:
     values:
-      server:
-        ingress:
-          annotations:
-            kubernetes.io/tls-acme: "true"
-            cert-manager.io/cluster-issuer: letsencrypt-prod
-          hosts: 
-            - grafana.apps.gozeit.com
-          tls:
-            - hosts:
-              - grafana.apps.gozeit.com
-              secretName: grafana-certmanager-tls-secret
-
+      ingress:
+        hosts:
+          - grafana.apps.gozeit.com
+        extraTls:
+        - hosts:
+          - grafana.apps.gozeit.com
+          secretName: grafana-certmanager-tls-secret
 
   clusterSelector:
     matchLabels:
       env: prod
-
