@@ -1,0 +1,27 @@
+defaultNamespace: monitoring
+
+helm:
+  chart: grafana
+  repo: https://charts.bitnami.com/bitnami
+  version: 7.9.8 
+  values:
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      tls: true
+
+targetCustomizations:
+- name: prod
+  helm:
+    values:
+      server:
+        ingress:
+          annotations:
+            kubernetes.io/tls-acme: "true"
+            cert-manager.io/cluster-issuer: letsencrypt-prod
+          hosts: 
+            - grafana.apps.gozeit.com
+          tls:
+            - hosts:
+              - grafana.apps.gozeit.com
+              secretName: grafana-certmanager-tls-secret
