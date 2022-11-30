@@ -9,14 +9,14 @@ helm:
       tls: true
       enabled: true
       ingressClassName: nginx
-      hostname: grafana.apps.gozeit.com
+      hostname: grafana2.apps.gozeit.com
       annotations:
         kubernetes.io/tls-acme: "true"
         cert-manager.io/cluster-issuer: "letsencrypt-prod"
       hosts:
-        - grafana.apps.gozeit.com
+        - grafana2.apps.gozeit.com
         
       extraTls:
       - hosts: 
-          - grafana.apps.gozeit.com
+          - grafana2.apps.gozeit.com
         secretName: grafana-tls-secret
