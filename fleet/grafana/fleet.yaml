@@ -25,3 +25,9 @@ targetCustomizations:
             - hosts:
               - grafana.apps.gozeit.com
               secretName: grafana-certmanager-tls-secret
+
+
+  clusterSelector:
+    matchLabels:
+      env: prod
+
