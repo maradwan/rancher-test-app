@@ -1,0 +1,10 @@
+defaultNamespace: cert-manager
+
+targetCustomizations:
+- name: prod
+  yaml:
+    values:
+      - prodValues
+  clusterSelector:
+    matchLabels:
+      env: prod
