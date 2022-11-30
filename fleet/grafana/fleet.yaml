@@ -6,6 +6,7 @@ helm:
   version: 7.9.8 
   values:
     ingress:
+      tls: true
       enabled: true
       annotations:
         kubernetes.io/ingress.class: nginx
