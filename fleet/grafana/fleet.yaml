@@ -3,7 +3,7 @@ defaultNamespace: monitoring
 helm:
   chart: grafana
   repo: https://charts.bitnami.com/bitnami
-  version: 7.9.8 
+  version: 8.2.20 
   values:
     ingress:
       tls: true
