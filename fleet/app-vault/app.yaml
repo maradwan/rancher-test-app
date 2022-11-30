@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+  namespace: demo
+  labels:
+    app: myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+      annotations:
+        vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/role: 'demo-app-role'
+        vault.hashicorp.com/agent-inject-secret-sb: 'backend/demo-app'
+        # Environment export 
+        vault.hashicorp.com/agent-inject-template-sb: |
+          {{ with secret "backend/demo-app" -}}
+            export USERNAME="{{ .Data.username }}"
+            export PASSWORD="{{ .Data.password }}"
+          {{- end }}
+
+    spec:
+      serviceAccountName: vault-demo
+      containers:
+      - name: myapp
+        image: maradwan/myapp:v1
+        ports:
+        - containerPort: 8888
