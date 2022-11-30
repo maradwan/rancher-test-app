@@ -15,6 +15,6 @@ helm:
         - grafana.apps.gozeit.com
         
       extraTls:
-        - hosts: 
-            - grafana.apps.gozeit.com
-          secretName: grafana-tls-secret
+      - hosts: 
+          - grafana.apps.gozeit.com
+        secretName: grafana-tls-secret
