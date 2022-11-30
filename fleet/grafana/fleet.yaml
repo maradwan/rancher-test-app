@@ -9,6 +9,7 @@ helm:
       tls: true
       enabled: true
       ingressClassName: nginx
+      hostname: grafana.apps.gozeit.com
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-prod"
       hosts:
