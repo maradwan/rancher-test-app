@@ -11,6 +11,7 @@ helm:
       ingressClassName: nginx
       hostname: grafana.apps.gozeit.com
       annotations:
+        kubernetes.io/tls-acme: "true"
         cert-manager.io/cluster-issuer: "letsencrypt-prod"
       hosts:
         - grafana.apps.gozeit.com
