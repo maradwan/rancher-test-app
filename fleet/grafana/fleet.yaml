@@ -9,6 +9,7 @@ helm:
       enabled: true
       ingressClassName: nginx
       tls: true
+      hostname: grafana.apps.gozeit.com
 
 targetCustomizations:
 - name: prod
