@@ -1,0 +1,37 @@
+defaultNamespace: vault
+
+helm:
+  chart: vault
+  repo: https://helm.releases.hashicorp.com
+  version: 0.20.1
+  values:
+    ui:
+      enabled: true
+    server:
+      ingress:
+        enabled: true
+        ingressClassName: nginx
+        activeService: false
+      ha:
+        enabled: true
+        raft:
+          enabled: true
+
+targetCustomizations:
+- name: prod
+  helm:
+    values:
+      server:
+        ingress:
+          annotations:
+            kubernetes.io/tls-acme: "true"
+            cert-manager.io/cluster-issuer: "letsencrypt-prod"
+          hosts: 
+            - host: vault.apps.gozeit.com
+          tls:
+            - hosts:
+              - vault.apps.gozeit.com
+              secretName: vault-certmanager-tls-secret-prod
+  clusterSelector:
+    matchLabels:
+      env: prod
