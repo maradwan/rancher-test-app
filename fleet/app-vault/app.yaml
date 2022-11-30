@@ -17,13 +17,17 @@ spec:
         app: myapp
       annotations:
         vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/role: 'internal-app'
+        vault.hashicorp.com/agent-inject-secret-database-config.txt: 'internal/data/database/config'
+        
+        vault.hashicorp.com/agent-inject: 'true'
         vault.hashicorp.com/role: 'demo-app-role'
         vault.hashicorp.com/agent-inject-secret-sb: 'backend/demo-app'
         # Environment export 
         vault.hashicorp.com/agent-inject-template-sb: |
           {{ with secret "backend/demo-app" -}}
-            export USERNAME="{{ .Data.username }}"
-            export PASSWORD="{{ .Data.password }}"
+            export USERNAME="{{ .Data.data.username }}"
+            export PASSWORD="{{ .Data.data.password }}"
           {{- end }}
 
     spec:
