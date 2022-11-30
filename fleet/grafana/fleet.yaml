@@ -10,19 +10,23 @@ helm:
       ingressClassName: nginx
       tls: true
       hostname: grafana.apps.gozeit.com
-
+      
+      
 targetCustomizations:
 - name: prod
   helm:
     values:
-      ingress:
-        hosts:
-          - grafana.apps.gozeit.com
-        extraTls:
-        - hosts:
-          - grafana.apps.gozeit.com
-          secretName: grafana-certmanager-tls-secret
-
+      server:
+        ingress:
+          annotations:
+            kubernetes.io/tls-acme: "true"
+            cert-manager.io/cluster-issuer: letsencrypt-prod
+          hosts: 
+            - grafana.apps.gozeit.com
+          tls:
+            - hosts:
+              - grafana.apps.gozeit.com
+              secretName: grafana-certmanager-tls-secret
   clusterSelector:
     matchLabels:
       env: prod
