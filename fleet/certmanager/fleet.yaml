@@ -1,0 +1,16 @@
+defaultNamespace: cert-manager
+
+helm:
+  chart: cert-manager
+  repo: https://charts.jetstack.io
+  version: 1.10.0
+  values:
+    installCRDs: true
+    webhook:
+      containerSecurityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop: 
+            - ALL
+          add:
+            - NET_BIND_SERVICE
