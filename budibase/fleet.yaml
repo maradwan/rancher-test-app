@@ -15,13 +15,13 @@ helm:
     services:
       proxy:
         port: 10000
-        replicaCount: 3
+        replicaCount: 2
       apps:
         port: 4002
-        replicaCount: 3
+        replicaCount: 2
       worker:
         port: 4001
-        replicaCount: 3
+        replicaCount: 2
     ingress:
       enabled: true
       nginx: false
