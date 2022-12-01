@@ -1,0 +1,45 @@
+defaultNamespace: budibase
+
+helm:
+  chart: budibase
+  repo: https://budibase.github.io/budibase/
+  version: 0.2.11
+  values:
+    couchdb:
+      persistentVolume:
+        enabled: true
+        accessModes:
+          - ReadWriteOnce
+        size: 10Gi
+        storageClass: "gp2"
+    services:
+      proxy:
+        port: 10000
+        replicaCount: 3
+      apps:
+        port: 4002
+        replicaCount: 3
+      worker:
+        port: 4001
+        replicaCount: 3
+    ingress:
+      enabled: true
+      nginx: false
+      aws: false
+      hosts:
+        - host: budibase.apps.gozeit.com
+          paths:
+            - path: /
+              pathType: Prefix
+              backend:
+                service:
+                  name: proxy-service
+                  port:
+                    number: 10000
+      annotations:
+        kubernetes.io/tls-acme: "true"
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+      tls:
+      - hosts:
+        - budibase.apps.gozeit.com
+        secretName: budibase-certmanager-tls-secret
