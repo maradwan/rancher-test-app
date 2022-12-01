@@ -5,13 +5,13 @@ helm:
   repo: https://budibase.github.io/budibase/
   version: 0.2.11
   values:
-    #couchdb:
-    #  persistentVolume:
-    #    enabled: true
-    #    accessModes:
-    #      - ReadWriteOnce
-    #    size: 10Gi
-    #    storageClass: "gp2"
+    couchdb:
+      persistentVolume:
+        enabled: true
+        accessModes:
+          - ReadWriteOnce
+        size: 10Gi
+        storageClass: "gp2"
     services:
       proxy:
         #port: 10000
