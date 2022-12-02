@@ -37,6 +37,8 @@ helm:
                   port:
                     number: 10000
       annotations:
+        nginx.ingress.kubernetes.io/proxy-buffer-size: 256k
+        nginx.ingress.kubernetes.io/proxy-buffers-number: "4"
         kubernetes.io/tls-acme: "true"
         cert-manager.io/cluster-issuer: letsencrypt-prod
       tls:
