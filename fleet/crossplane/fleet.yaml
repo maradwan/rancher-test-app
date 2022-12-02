@@ -1,0 +1,6 @@
+defaultNamespace: crossplane-system
+
+helm:
+  chart: crossplane
+  repo: https://charts.crossplane.io/stable
+  #version: 1.10.0
