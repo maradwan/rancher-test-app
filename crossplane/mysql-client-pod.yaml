@@ -15,7 +15,7 @@ spec:
         secretKeyRef:
           name: production-rds-conn-string
           key: endpoint
-    - name: MYSQL_PWD
+    - name: MYSQL_PASSWORD
       valueFrom:
         secretKeyRef:
           name: production-rds-conn-string
