@@ -7,8 +7,8 @@ spec:
   containers:
   - name: mysqlconn
     image: mysql:latest
-    command: ['mysql']
-    args: ['-c', 'show databases;']
+    command: ['sh']
+    #args: ['-c', 'show databases;']
     env:
     - name: MYSQL_HOST
       valueFrom:
