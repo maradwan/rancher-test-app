@@ -9,8 +9,8 @@ spec:
     image: mysql:latest
     #command: ['mysql']
     command: [ "/bin/bash", "-c", "--" ]
-    args: [ "mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $MYSQL_HOST -e 'show databases'" ]
-    #args: [ "while true; do sleep 30; done;" ]
+    #args: [ "mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $MYSQL_HOST -e 'show databases'" ]
+    args: [ "while true; do mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $MYSQL_HOST -e 'show databases'; done;" ]
     env:
     - name: MYSQL_HOST
       valueFrom:
