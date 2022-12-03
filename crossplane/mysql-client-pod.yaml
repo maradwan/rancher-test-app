@@ -7,8 +7,10 @@ spec:
   containers:
   - name: mysqlconn
     image: mysql:latest
-    command: ['sh']
+    #command: ['sh']
+    command: [ "/bin/bash", "-c", "--" ]  
     #args: ['-c', 'show databases;']
+    args: [ "while true; do sleep 30; done;" ]
     env:
     - name: MYSQL_HOST
       valueFrom:
