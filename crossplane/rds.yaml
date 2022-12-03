@@ -27,9 +27,9 @@ spec:
     caCertificateIdentifier: rds-ca-2019
     copyTagsToSnapshot: false
     dbInstanceClass: db.t2.small
-    dbSubnetGroupName: prod-subnet-group 
+    dbSubnetGroupName: prod-subnet-group
     vpcSecurityGroupIDRefs:
-      name: rds-access-sg
+      - name: rds-access-sg
     deletionProtection: false
     enableIAMDatabaseAuthentication: false
     enablePerformanceInsights: false
