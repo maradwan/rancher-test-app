@@ -9,7 +9,7 @@ spec:
     image: mysql:latest
     command: [ "sh", "-c"]
     args:
-      - while true; do
+    - while true; do
           mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $MYSQL_HOST -e 'show databases';
           sleep 10;
       done;
