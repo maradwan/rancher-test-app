@@ -7,10 +7,8 @@ spec:
   containers:
   - name: mysqlconn
     image: mysql:latest
-    command: ['mysql', '-u', '$MYSQL_USER', '-p$MYSQL_PASSWORD', '-h', '$MYSQL_HOST', '-e', 'show databases']
-    #command: [ "/bin/bash", "-c", "--" ]
-    #args: [ "mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $MYSQL_HOST -e 'show databases'" ]
-   # args: [ "while true; do mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $MYSQL_HOST -e 'show databases'; done;" ]
+    command: ['mysql']
+    args: ['-c', 'show databases;']
     env:
     - name: MYSQL_HOST
       valueFrom:
@@ -23,6 +21,16 @@ spec:
           name: production-rds-conn-string
           key: password
     - name: MYSQL_USER
+      valueFrom:
+        secretKeyRef:
+          name: production-rds-conn-string
+          key: username
+    - name: MYSQL_ROOT_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: production-rds-conn-string
+          key: password
+    - name: MYSQL_ROOT_USER
       valueFrom:
         secretKeyRef:
           name: production-rds-conn-string
