@@ -20,7 +20,7 @@ spec:
         secretKeyRef:
           name: production-rds-conn-string
           key: password
-    - name: USER
+    - name: MYSQL_USER
       valueFrom:
         secretKeyRef:
           name: production-rds-conn-string
