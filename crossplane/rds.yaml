@@ -52,7 +52,7 @@ spec:
     storageEncrypted: false
     storageType: gp2
   providerConfigRef:
-    name: awsconfig
+    name: default
   writeConnectionSecretToRef:
     name: production-rds-conn-string
     namespace: default
