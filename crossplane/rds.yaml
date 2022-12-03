@@ -35,7 +35,7 @@ spec:
     enablePerformanceInsights: false
     engine: mysql
     region: eu-west-1
-    engineVersion: 5.6.35
+    engineVersion: 5.7.40
     finalDBSnapshotIdentifier: final-db-snapshot
     licenseModel: general-public-license
     masterUsername: admin
