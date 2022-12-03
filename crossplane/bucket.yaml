@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   providerConfigRef:
-    name: aws-provider-config
+    name: aws-crossplane
   forProvider:
     locationConstraint: eu-central-1
     acl: private
