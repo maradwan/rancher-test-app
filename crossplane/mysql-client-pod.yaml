@@ -7,10 +7,10 @@ spec:
   containers:
   - name: mysqlconn
     image: mysql:latest
-    #command: ['mysql']
-    command: [ "/bin/bash", "-c", "--" ]
+    command: ['mysql', '-u', '$MYSQL_USER', '-p$MYSQL_PASSWORD', '-h', '$MYSQL_HOST', '-e', 'show databases']
+    #command: [ "/bin/bash", "-c", "--" ]
     #args: [ "mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $MYSQL_HOST -e 'show databases'" ]
-    args: [ "while true; do mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $MYSQL_HOST -e 'show databases'; done;" ]
+   # args: [ "while true; do mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $MYSQL_HOST -e 'show databases'; done;" ]
     env:
     - name: MYSQL_HOST
       valueFrom:
