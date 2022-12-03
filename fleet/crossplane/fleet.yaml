@@ -4,3 +4,12 @@ helm:
   chart: crossplane
   repo: https://charts.crossplane.io/stable
   #version: 1.10.0
+
+targetCustomizations:
+- name: prod
+  yaml:
+    values:
+      - prodValues
+  clusterSelector:
+    matchLabels:
+      env: prod
