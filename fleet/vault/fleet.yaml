@@ -19,6 +19,25 @@ helm:
           enabled: true
 
 targetCustomizations:
+- name: dev
+  helm:
+    values:
+      server:
+        ingress:
+          annotations:
+            kubernetes.io/tls-acme: "true"
+            cert-manager.io/cluster-issuer: "letsencrypt-prod"
+          hosts: 
+            - host: vault.devops.gozeit.com
+          tls:
+            - hosts:
+              - vault.devops.gozeit.com
+              secretName: vault-certmanager-tls-secret-prod
+  clusterSelector:
+    matchLabels:
+      env: dev
+
+targetCustomizations:
 - name: prod
   helm:
     values:
