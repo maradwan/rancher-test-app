@@ -1,4 +1,17 @@
 ---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: demo
+  labels:
+    name: demo
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: vault-demo
+  namespace: demo
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
