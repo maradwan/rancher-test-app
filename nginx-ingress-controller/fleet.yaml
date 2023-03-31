@@ -14,3 +14,6 @@ helm:
           service.beta.kubernetes.io/aws-load-balancer-ssl-ports: https
           service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: 'true'
           service.beta.kubernetes.io/aws-load-balancer-type: nlb
+          #service.beta.kubernetes.io/aws-load-balancer-access-log-enabled: true
+          #service.beta.kubernetes.io/aws-load-balancer-access-log-s3-bucket-name: logs
+          #service.beta.kubernetes.io/aws-load-balancer-access-log-s3-bucket-prefix: ELB/test
