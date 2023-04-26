@@ -1,0 +1,7 @@
+defaultNamespace: keycloak
+helm:
+  chart: keycloak
+  repo: https://charts.bitnami.com/bitnami
+  version: 9.7.3
+  valuesFiles:
+    - ./values.yaml
