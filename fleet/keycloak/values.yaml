@@ -1,0 +1,30 @@
+#auth:
+#  adminPassword: ''
+#  adminUser: user
+#  existingSecret: keycloak-secrets
+#postgresql:
+#  auth:
+#    existingSecret: keycloak-secrets
+ingress:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  enabled: true
+  hostname: id.sandbox.gozeit.com
+  ingressClassName: nginx
+  tls: true
+extraEnvVars:
+    - name: KEYCLOAK_EXTRA_ARGS
+      value: --spi-login-protocol-openid-connect-legacy-logout-redirect-uri=true
+      #supports legacy logout with param redirect_uri
+keycloakConfigCli:
+  annotations:
+    helm.sh/hook: 'post-install,post-upgrade,post-rollback'
+    helm.sh/hook-delete-policy: 'hook-succeeded,before-hook-creation'
+    helm.sh/hook-weight: '5'
+  extraEnvVars:
+    - name: KC_HOSTNAME
+      value: id.sandbox.gozeit.com
+service:
+  type: ClusterIP
+logging:
+  level: INFO
